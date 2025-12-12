@@ -10,8 +10,8 @@ Grabs prices for flights from Dallas to most major airports in the US. Stores in
 5. Run the command `poetry install --no-root`.
 
 To run files you can either:
-- Run `poetry shell` and then `python test.py`
-- Run `peotry run python test.py`
+- Run `poetry shell` and then `uvicorn app.main:app --reload`
+- Run `poetry run uvicorn app.main:app --reload`
 
 If you choose to run `poetry shell` first, when you are done developing you can type `exit` in your terminal to exit the shell.
 
