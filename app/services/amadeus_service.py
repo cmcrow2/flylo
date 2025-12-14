@@ -13,17 +13,16 @@ AMADEUS_CLIENT_SECRET = os.getenv("AMADEUS_CLIENT_SECRET")
 amadeus = Client(client_id=AMADEUS_CLIENT_ID, client_secret=AMADEUS_CLIENT_SECRET)
 
 
-def search_flights(origin: str, destination: str, date: str, adults: int = 1):
+def search_flights():
     """
     Search for flights using the Amadeus API.
     Returns a list of flight offers or empty list if error occurs.
     """
     try:
-        response = amadeus.shopping.flight_offers_search.get(
-            originLocationCode=origin,
-            destinationLocationCode=destination,
-            departureDate=date,
-            adults=adults,
+        response = amadeus.get(
+            "/v1/reference-data/locations",
+            keyword="DFW",
+            subType="AIRPORT",
         )
         return response.data
     except ResponseError as e:
@@ -33,5 +32,5 @@ def search_flights(origin: str, destination: str, date: str, adults: int = 1):
 
 if __name__ == "__main__":
     # Example usage
-    flights = search_flights("MAD", "BOS", "2024-12-25")
+    flights = search_flights()
     print(flights)
