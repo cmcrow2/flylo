@@ -12,6 +12,9 @@ uvicorn = "^0.38.0"
 black = "^25.12.0"
 isort = "^7.0.0"
 ruff = "^0.14.9"
+amadeus = "^12.0.0"
+python-dotenv = "^1.2.1"
+requests = "^2.32.5"
 
 
 [build-system]
